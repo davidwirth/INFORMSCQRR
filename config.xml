@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "org.informs.icqrr"
+        versionCode = "10" 
+        version     = "0.0.1" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>INFORMS Conference QR Reader</name>
+
+    <description>
+        PhoneGap Build config for INFORMS Conference QR Reader, which enables staff to use a mobile device to scan attendee badge QR codes 
+        and extract event entitlements based on ID #. 
+    </description>
+
+    <author href="https://www.informs.org" email="david.wirth@informs.org">
+        David Wirth 
+    </author>
+    
+    <gap:plugin name="com.phonegap.plugins.barcodescanner" version="1.1.0" />
+
+</widget>
