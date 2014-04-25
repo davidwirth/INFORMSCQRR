@@ -1,27 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style type="text/css">
+      @import url('css/jquery.mobile-1.4.2.min.css');
+      @import url('css/jquery.mobile.theme-1.4.2.min.css');
+      @import url('css/style.css');
+    </script>
     <script src="phonegap.js"></script>
     <script src="barcodescanner.js"></script>
-   <script type="text/javascript">
-     function scan() {
-       var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-       scanner.scan(
-         function (result) {
+    <script src="js/jquery.mobile-1.4.2.min.js"></script>
+    <script type="text/javascript">
+      function scan() {
+        var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+        scanner.scan(
+          function (result) {
             alert("We got a barcode\n" +
                   "Result: " + result.text + "\n" +
                   "Format: " + result.format + "\n" +
                   "Cancelled: " + result.cancelled);
-         }, 
-         function (error) {
+          }, 
+          function (error) {
             alert("Scanning failed: " + error);
-         }
-       );
-     }
+          }
+        );
+      }
     </script>
   </head>
   <body>
-   test123
-<button onclick="scan()">test</button>
+    <div data-role="page">
+      <div data-role="header">
+        INFORMS Event QR Scanner
+      </div>
+      <button onclick="scan()">test</button>
+      <div data-role="footer" data-position="fixed">
+        INFORMS
+      </div>
+    </div><!-- page -->
   </body>
 </html>
