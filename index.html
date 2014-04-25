@@ -15,12 +15,11 @@
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         scanner.scan(
           function (result) {
-            var pattern = /ID#\s?\d{1,7}/;
+            var pattern = /ID#\s?(\d{1,7})/;
             var member_id = pattern.exec( result.text );
-            alert(result.text);
-            if (isNaN(member_id)) alert("There was no member ID found in the scanned QR code.");
+            if (!member_id[1] || isNaN(member_id[1])) alert("There was no member ID found in the scanned QR code.");
             else {
-              alert(member_id);
+              alert(member_id[1]);
             }
           }, 
           function (error) {
