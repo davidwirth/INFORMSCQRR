@@ -17,6 +17,7 @@
           function (result) {
             var pattern = /ID#\s?\d{1,7}/;
             var member_id = pattern.exec( result.text );
+            alert(result.text);
             if (isNaN(member_id)) alert("There was no member ID found in the scanned QR code.");
             else {
               alert(member_id);
