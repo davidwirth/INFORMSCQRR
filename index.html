@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script type="text/javascript" src="cordova.js"></script>
-    <script type="text/javascript" src="barcodescanner.js"></script>
-    <script type="text/javascript">
-      cordova.plugins.barcodeScanner.scan(
+    <script src="barcodescanner.js"></script>
+
+  </head>
+  <body>
+   test123
+   <script type="text/javascript">
+      var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+      scanner.scan(
         function (result) {
             alert("We got a barcode\n" +
                   "Result: " + result.text + "\n" +
@@ -16,8 +20,5 @@
         }
       );
     </script>
-  </head>
-  <body>
-   test123
   </body>
 </html>
