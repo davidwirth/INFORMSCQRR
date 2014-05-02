@@ -50,6 +50,7 @@
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         scanner.scan(
           function (result) {
+            alert( result.text );
             var pattern = /ID#\s?(\d{1,7})/m;
             var member_id = pattern.exec( result.text );
             if (!member_id[1] || isNaN(member_id[1])) alert("There was no member ID found in the scanned QR code.");
