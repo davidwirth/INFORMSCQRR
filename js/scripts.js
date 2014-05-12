@@ -3,8 +3,8 @@ var fields = {'event': [ 'item_id', 'description' ], 'entitlement': ['item_id', 
 var active_item = '';
 var db = openDatabase( 'event_entitlement', '', 'Event Item Entitlement Database', 2 * 1024 * 1024 );
 var popupTimer = null;
-var ding = loadAudio( 'audio/ding.mp3' );
-var buzzer = loadAudio( 'audio/buzzer.mp3' );
+var ding = null;
+var buzzer = null;
 
 // create the database tables if they do not already exist
 db.transaction(function ( tx ) {
@@ -74,7 +74,11 @@ function loadAudio(src) {
 function mediaError( e ) { alert(e.message); }
 
 function mediaSuccess() {}
- 
+
+function onDeviceReady() {
+  ding = loadAudio( 'audio/ding.mp3' );
+  buzzer = loadAudio( 'audio/buzzer.mp3' );
+}
 
 $(document).ready( function() {
   $('.item_menu').click( function() {
