@@ -20,7 +20,6 @@
         tx.executeSql('CREATE TABLE IF NOT EXISTS entitlement( item_id, cust_id )');
         tx.executeSql('TRUNCATE entitlement'); // for testing purposes, clearing the table each page load            
       });
-      /*
       // check if there is data
       db.transaction(function( tx ) {
         tx.executeSql('SELECT * FROM event', [], function( tx, result ) {
@@ -47,7 +46,7 @@
             });
           });
         });
-      }*/
+      }
       function scan() {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         scanner.scan(
