@@ -75,12 +75,17 @@ function mediaError( e ) { alert(e.message); }
 
 function mediaSuccess() {}
 
+function onLoad() {
+  document.addEventListener("deviceready", onDeviceReady, false);
+}
+
 function onDeviceReady() {
   ding = loadAudio( 'audio/ding.mp3' );
   buzzer = loadAudio( 'audio/buzzer.mp3' );
 }
 
 $(document).ready( function() {
+  onLoad();
   $('.item_menu').click( function() {
     active_item = $(this).attr( 'id' );
     $.mobile.pageContainer.pagecontainer("change", "#scanner_page");
