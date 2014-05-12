@@ -68,8 +68,10 @@ $(document).ready( function() {
   });
   $('#scan_button').click( function() {
     $('#popupYes').popup("open");
-    audio = document.getElementById("ding");
-    audio.play();
+    //audio = document.getElementById("ding");
+   // audio.play();
+    var media = new Media('audio/ding.png', function() {});
+    media.play();
     popupTimer = window.setTimeout(function(){$('#popupYes').popup("close");}, 3000);
   });
   $('.popup').click( function() {

@@ -19,5 +19,6 @@
     </author>
     
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
+    <gap:plugin name="org.apache.cordova.media" />
 
 </widget>
