@@ -1,0 +1,19 @@
+div[data-role=page] {
+background: #d7e6f7; /* Old browsers */
+background: -moz-linear-gradient(top,  #d7e6f7 0%, #dbebf9 7%, #dfedf9 12%, #fcecdc 49%, #f6c976 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d7e6f7), color-stop(7%,#dbebf9), color-stop(12%,#dfedf9), color-stop(49%,#fcecdc), color-stop(100%,#f6c976)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #d7e6f7 0%,#dbebf9 7%,#dfedf9 12%,#fcecdc 49%,#f6c976 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #d7e6f7 0%,#dbebf9 7%,#dfedf9 12%,#fcecdc 49%,#f6c976 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #d7e6f7 0%,#dbebf9 7%,#dfedf9 12%,#fcecdc 49%,#f6c976 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #d7e6f7 0%,#dbebf9 7%,#dfedf9 12%,#fcecdc 49%,#f6c976 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7e6f7', endColorstr='#f6c976',GradientType=0 ); /* IE6-9 */
+}
+.ui-content { padding: 5px; }
+.ui-header { height: 38px; padding: 3px 12px; font-size: 150%; text-align: center;}
+.ui-footer { padding-left: 5px; text-align: center; }
+.ui-popup { height: 300px; width: 300px;  }
+.ui-block-a { padding-top: 5px; }
+.ui-block-a, .ui-block-b { height:60px; border-width: 0 0 1px 0; border-style: solid; border-color: #999; }
+
+#scan_button { background-image: url('../images/icons-png/qrcode.png'); width: 300px; height: 300px; margin: 0 auto; box-shadow: 10px 10px 10px #878;}
+#scan_button:active { box-shadow: 4px 4px 10px #878; left: 2px; top: 2px; }
