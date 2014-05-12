@@ -61,6 +61,19 @@ function scan() {
   );
 }
 
+function playAudio(src) {
+  if (device.platform == 'Android') {
+    src = '/android_asset/www/' + src;
+  }
+  var media = new Media(src, mediaSuccess, mediaError);
+  media.play();
+}
+
+function mediaError( e ) { alert(e.message); }
+
+function mediaSuccess() {}
+ 
+
 $(document).ready( function() {
   $('.item_menu').click( function() {
     active_item = $(this).attr( 'id' );
@@ -70,8 +83,7 @@ $(document).ready( function() {
     $('#popupYes').popup("open");
     //audio = document.getElementById("ding");
    // audio.play();
-    var media = new Media('audio/ding.png', function() {});
-    media.play();
+    playAudio('audio/ding.png');
     popupTimer = window.setTimeout(function(){$('#popupYes').popup("close");}, 3000);
   });
   $('.popup').click( function() {

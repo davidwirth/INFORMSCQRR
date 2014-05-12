@@ -9,7 +9,7 @@ background: linear-gradient(to bottom,  #d7e6f7 0%,#dbebf9 7%,#dfedf9 12%,#fcecd
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d7e6f7', endColorstr='#f6c976',GradientType=0 ); /* IE6-9 */
 }
 .ui-content { padding: 5px; }
-.ui-header { height: 38px; padding: 3px 12px; font-size: 150%; text-align: center;}
+.ui-header { height: 38px; padding: 3px 12px; text-align: center;}
 .ui-footer { padding-left: 5px; text-align: center; }
 .ui-popup { height: 300px; width: 300px;  }
 .ui-block-a { padding-top: 5px; }
