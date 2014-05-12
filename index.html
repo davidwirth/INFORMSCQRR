@@ -34,7 +34,7 @@
       function fullDownload() {
         $.getJSON( "https://rest.informs.org/event_entitlement_json.php?callback=", function( json ) {
           localStorage.stamp = json.stamp;
-          /*db.transaction( function(tx) {
+          db.transaction( function(tx) {
             $.each( json.tx_data, function( i ) {
               switch( json.tx_data[i][0] ) {
                 case '1':
@@ -46,10 +46,11 @@
               }
               tx.executeSql( sql );
             });
-          });*/
+          });
         });
         alert("download complete");
       }
+      
       function scan() {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         scanner.scan(
@@ -57,9 +58,10 @@
             //alert( result.text );
             var id = result.text;
             var event_item = 'NETWORK_LUNCHEON';
-            var db = openDatabase( 'event_entitlement', '', 'Event Item Entitlement Database', 2 * 1024 * 1024 );
+            //var db = openDatabase( 'event_entitlement', '', 'Event Item Entitlement Database', 2 * 1024 * 1024 );
             db.transaction(function( tx ) {
-              tx.executeSql("SELECT cust_id FROM entitlement WHERE item_id='"+event_item+"' AND cust_id='"+id+"'",[],function(tx, results) {
+              var sql = "SELECT cust_id FROM entitlement WHERE item_id='"+event_item+"' AND cust_id='"+id+"'";
+              tx.executeSql(sql,[],function(tx, results) {
                 alert( results.rows.length );
                 if (results.rows.length > 0) alert('yes');
                 else alert('no');
@@ -71,6 +73,7 @@
           }
         );
       }
+      
       $(document).ready( function() {
         
       });
