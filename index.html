@@ -18,7 +18,8 @@
       db.transaction(function ( tx ) {
         tx.executeSql('CREATE TABLE IF NOT EXISTS event( item_id, description )');
         tx.executeSql('CREATE TABLE IF NOT EXISTS entitlement( item_id, cust_id )');
-        tx.executeSql('DELETE FROM entitlement'); // for testing purposes, clearing the table each page load            
+        tx.executeSql('DELETE FROM entitlement'); // for testing purposes, clearing the table each page load     
+        alert( 'database initialization complete' );       
       });
       // check if there is data
      /* db.transaction(function( tx ) {
