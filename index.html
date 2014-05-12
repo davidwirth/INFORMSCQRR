@@ -26,7 +26,7 @@
           if (result.rows.length == 0) fullDownload();
         },
         function( tx, err ) {
-          alert( err );
+          alert( 'data check failed' + err );
         });
       });
       function fullDownload() {
