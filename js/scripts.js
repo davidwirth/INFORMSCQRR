@@ -83,8 +83,7 @@ $(document).ready( function() {
     $('#popupYes').popup("open");
     //audio = document.getElementById("ding");
    // audio.play();
-    var media = new Media('ding.mp3');
-    media.play();
+    playAudio('ding.mp3');
     popupTimer = window.setTimeout(function(){$('#popupYes').popup("close");}, 3000);
   });
   $('.popup').click( function() {
