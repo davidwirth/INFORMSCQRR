@@ -54,15 +54,15 @@
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         scanner.scan(
           function (result) {
-            alert( result.text );
-            /*var id = result.text;
+            //alert( result.text );
+            var id = result.text;
             var event_item = 'NETWORK_LUNCHEON';
             db.transaction(function( tx ) {
-              tx.executeSql('SELECT cust_id FROM entitlement WHERE item_id='+event_item,[],function(tx, results) {
+              tx.executeSql("SELECT cust_id FROM entitlement WHERE item_id='"+event_item+"'",[],function(tx, results) {
                 if (results.rows.length > 0) alert('yes');
                 else alert('no');
               },null);
-            });*/
+            });
           }, 
           function (error) {
             alert("Scanning failed: " + error);
