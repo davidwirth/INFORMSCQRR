@@ -3,6 +3,8 @@ var fields = {'event': [ 'item_id', 'description' ], 'entitlement': ['item_id', 
 var active_item = '';
 var db = openDatabase( 'event_entitlement', '', 'Event Item Entitlement Database', 2 * 1024 * 1024 );
 var popupTimer = null;
+var ding = loadAudio( 'audio/ding.mp3' );
+var buzzer = loadAudio( 'audio/buzzer.mp3' );
 
 // create the database tables if they do not already exist
 db.transaction(function ( tx ) {
@@ -61,12 +63,12 @@ function scan() {
   );
 }
 
-function playAudio(src) {
+function loadAudio(src) {
   if (device.platform == 'Android') {
     src = '/android_asset/www/' + src;
   }
   var media = new Media(src, mediaSuccess, mediaError);
-  media.play();
+  return media;
 }
 
 function mediaError( e ) { alert(e.message); }
@@ -83,7 +85,7 @@ $(document).ready( function() {
     $('#popupYes').popup("open");
     //audio = document.getElementById("ding");
    // audio.play();
-    playAudio('ding.mp3');
+    ding.play();
     popupTimer = window.setTimeout(function(){$('#popupYes').popup("close");}, 3000);
   });
   $('.popup').click( function() {
