@@ -21,14 +21,14 @@
         tx.executeSql('TRUNCATE entitlement'); // for testing purposes, clearing the table each page load            
       });
       // check if there is data
-      db.transaction(function( tx ) {
+     /* db.transaction(function( tx ) {
         tx.executeSql('SELECT * FROM event', [], function( tx, result ) {
           //if (result.rows.length == 0) fullDownload();
         },
         function( tx, err ) {
           alert( 'data check failed' + err );
         });
-      });
+      });*/
       function fullDownload() {
         $.getJSON( "https://rest.informs.org/event_entitlement_json.php?callback=", function( json ) {
           localStorage.stamp = json.stamp;
@@ -46,7 +46,9 @@
             });
           });
         });
+        alert("download complete");
       }
+      fullDownload();
       function scan() {
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         scanner.scan(
