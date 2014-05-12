@@ -23,7 +23,7 @@
       // check if there is data
       db.transaction(function( tx ) {
         tx.executeSql('SELECT * FROM event', [], function( tx, result ) {
-          if (result.rows.length == 0) fullDownload();
+          //if (result.rows.length == 0) fullDownload();
         },
         function( tx, err ) {
           alert( 'data check failed' + err );
