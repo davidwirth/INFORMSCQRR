@@ -11,7 +11,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/jquery.mobile-1.4.2.min.js"></script>
     <script type="text/javascript">
-      /*
+      
       var fields = {'event': [ 'item_id', 'description' ], 'entitlement': ['item_id', 'cust_id'] };
       var db = openDatabase( 'event_entitlement', '', 'Event Item Entitlement Database', 2 * 1024 * 1024 );
       // create the database tables if they do not already exist
@@ -20,6 +20,7 @@
         tx.executeSql('CREATE TABLE IF NOT EXISTS entitlement( item_id, cust_id )');
         tx.executeSql('TRUNCATE entitlement'); // for testing purposes, clearing the table each page load            
       });
+      /*
       // check if there is data
       db.transaction(function( tx ) {
         tx.executeSql('SELECT * FROM event', [], function( tx, result ) {
@@ -51,13 +52,14 @@
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         scanner.scan(
           function (result) {
-            alert( result.text );
-            var pattern = /ID#\s?(\d{1,7})/m;
-            var member_id = pattern.exec( result.text );
-            if (!member_id[1] || isNaN(member_id[1])) alert("There was no member ID found in the scanned QR code.");
-            else {
-              alert(member_id[1]);
-            }
+            var id = result.text;
+            var event_item = 'NETWORK_LUNCHEON';
+            db.transaction(function( tx ) {
+              tx.executeSql('SELECT cust_id FROM entitlement WHERE item_id='+event_item,[],function(tx, results) {
+                if (results.rows.length > 0) alert('yes');
+                else alert('no');
+              },null);
+            });
           }, 
           function (error) {
             alert("Scanning failed: " + error);
@@ -73,7 +75,7 @@
     <div data-role="page" id="main_page">
       <div data-role="header">
         INFORMS Event QR Scanner
-      </div><button onclick="scan()">test</button>
+      </div><button onclick="scan()">Network Luncheon</button>
       <h1>Event: </h1>
       <div id="event_items"></div>
       <div data-role="footer" data-position="fixed">
