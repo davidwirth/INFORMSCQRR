@@ -60,6 +60,7 @@
             var db = openDatabase( 'event_entitlement', '', 'Event Item Entitlement Database', 2 * 1024 * 1024 );
             db.transaction(function( tx ) {
               tx.executeSql("SELECT cust_id FROM entitlement WHERE item_id='"+event_item+"' AND cust_id='"+id+"'",[],function(tx, results) {
+                alert( results.rows );
                 if (results.rows.length > 0) alert('yes');
                 else alert('no');
               },null);
