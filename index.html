@@ -51,6 +51,7 @@
         var scanner = cordova.require("cordova/plugin/BarcodeScanner");
         scanner.scan(
           function (result) {
+            alert( results.text );
             var id = result.text;
             var event_item = 'NETWORK_LUNCHEON';
             db.transaction(function( tx ) {
