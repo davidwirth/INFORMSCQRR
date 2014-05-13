@@ -52,8 +52,18 @@ function scan() {
       db.transaction(function( tx ) {
         var sql = "SELECT cust_id FROM entitlement WHERE item_id='"+event_item+"' AND cust_id='"+id+"'";
         tx.executeSql(sql,[],function(tx, results) {
-          if (results.rows.length > 0) alert('yes');
-          else alert('no');
+          if (results.rows.length > 0) {
+            ding.play();
+            $('#imgYes').show();
+            $('#imgNo').hide();
+          }
+          else {
+            buzzer.play();
+            $('#imgYes').hide();
+            $('#imgNo').show();
+          }
+          $('#popupResult').popup("open");
+          popupTimer = window.setTimeout(function(){$('#popupResult').popup("close");}, 3000);
         },null);
       });
     }, 
@@ -84,6 +94,12 @@ function onDeviceReady() {
   buzzer = loadAudio( 'audio/buzzer.mp3' );
 }
 
+// bind touch events
+$(document).on( "pagecreate", "#scanner_page", function(){
+  $('#scan_button').on("tap",function(){ scan(); });
+  $('#scan_button').on("taphold",function(){ scan(); });
+});
+
 $(document).ready( function() {
   onLoad();
   $('.item_menu').click( function() {
@@ -91,33 +107,7 @@ $(document).ready( function() {
     $.mobile.pageContainer.pagecontainer("change", "#scanner_page");
   });
   $('#scan_button').click( function() {
-    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
-    scanner.scan(
-      function (result) {
-        var id = result.text;
-        var event_item = 'NETWORK_LUNCHEON';
-        db.transaction(function( tx ) {
-          var sql = "SELECT cust_id FROM entitlement WHERE item_id='"+event_item+"' AND cust_id='"+id+"'";
-          tx.executeSql(sql,[],function(tx, results) {
-            if (results.rows.length > 0) {
-              ding.play();
-              $('#imgYes').show();
-              $('#imgNo').hide();
-            }
-            else {
-              buzzer.play();
-              $('#imgYes').hide();
-              $('#imgNo').show();
-            }
-            $('#popupResult').popup("open");
-            popupTimer = window.setTimeout(function(){$('#popupResult').popup("close");}, 3000);
-          },null);
-        });
-      }, 
-      function (error) {
-        alert("Scanning failed: " + error);
-      }
-    );
+    scan();
   });
   $('.popup').click( function() {
     clearTimeout(popupTimer);
