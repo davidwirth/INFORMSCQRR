@@ -109,7 +109,7 @@ $(document).ready( function() {
               $('#imgYes').hide();
               $('#imgNo').show();
             }
-            $('#popupResult').popup();
+            $('#popupResult').popup("open");
             popupTimer = window.setTimeout(function(){$('#popupResult').popup("close");}, 3000);
           },null);
         });
