@@ -22,4 +22,5 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', end
 #scan_button { background-image: url('../images/icons-png/qrcode.png'); width: 300px; height: 300px; margin: 0 auto; box-shadow: 10px 10px 10px #878;}
 #scan_button:active { box-shadow: 4px 4px 10px #878; left: 2px; top: 2px; }
 
+#popupResult { background: transparent; box-shadow: none; border: none; }
 #popupResult img { display: none; }
