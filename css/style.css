@@ -1,19 +1,25 @@
-div[data-role=page] {
-background: #1e5799; /* Old browsers */
-background: -moz-linear-gradient(-45deg,  #1e5799 0%, #207cca 0%, #2989d8 0%, #f7d185 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#1e5799), color-stop(0%,#207cca), color-stop(0%,#2989d8), color-stop(100%,#f7d185)); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(-45deg,  #1e5799 0%,#207cca 0%,#2989d8 0%,#f7d185 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(-45deg,  #1e5799 0%,#207cca 0%,#2989d8 0%,#f7d185 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(-45deg,  #1e5799 0%,#207cca 0%,#2989d8 0%,#f7d185 100%); /* IE10+ */
-background: linear-gradient(135deg,  #1e5799 0%,#207cca 0%,#2989d8 0%,#f7d185 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#f7d185',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+body {
+background: #bbd4f1; /* Old browsers */
+background: -moz-linear-gradient(45deg,  #bbd4f1 0%, #c4dff6 0%, #cbd5fb 0%, #ffe3bb 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#bbd4f1), color-stop(0%,#c4dff6), color-stop(0%,#cbd5fb), color-stop(100%,#ffe3bb)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* IE10+ */
+background: linear-gradient(45deg,  #bbd4f1 0%,#c4dff6 0%,#cbd5fb 0%,#ffe3bb 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd4f1', endColorstr='#ffe3bb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
-.ui-content { padding: 5px; }
+.ui-page { background: transparent; }
+.ui-content { padding: 10px; }
 .ui-header { height: 38px; padding: 3px 12px; text-align: center;}
 .ui-footer { padding-left: 5px; text-align: center; }
 .ui-popup { height: 300px; width: 300px;  }
-.ui-block-a { padding-top: 5px; }
-.ui-block-a, .ui-block-b { height:60px; border-width: 0 0 1px 0; border-style: solid; border-color: #999; }
+.ui-grid-a .ui-block-a { padding-top: 5px; width: 66%; }
+.ui-grid-a .ui-block-b { width: 34%; }
+.ui-grid-a .ui-block-a, .ui-grid-a .ui-block-b { height:60px; border-width: 0 0 1px 0; border-style: solid; border-color: #999; }
+.ui-header .ui-btn { height: 18px; }
+.ui-checkbox input { width: 30px; height: 30px; }
 
 #scan_button { background-image: url('../images/icons-png/qrcode.png'); width: 300px; height: 300px; margin: 0 auto; box-shadow: 10px 10px 10px #878;}
 #scan_button:active { box-shadow: 4px 4px 10px #878; left: 2px; top: 2px; }
+
+#popupResult img { display: none; }

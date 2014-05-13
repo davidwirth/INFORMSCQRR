@@ -91,11 +91,33 @@ $(document).ready( function() {
     $.mobile.pageContainer.pagecontainer("change", "#scanner_page");
   });
   $('#scan_button').click( function() {
-    $('#popupYes').popup("open");
-    //audio = document.getElementById("ding");
-   // audio.play();
-    ding.play();
-    popupTimer = window.setTimeout(function(){$('#popupYes').popup("close");}, 3000);
+    var scanner = cordova.require("cordova/plugin/BarcodeScanner");
+    scanner.scan(
+      function (result) {
+        var id = result.text;
+        var event_item = 'NETWORK_LUNCHEON';
+        db.transaction(function( tx ) {
+          var sql = "SELECT cust_id FROM entitlement WHERE item_id='"+event_item+"' AND cust_id='"+id+"'";
+          tx.executeSql(sql,[],function(tx, results) {
+            if (results.rows.length > 0) {
+              ding.play();
+              $('#imgYes').show();
+              $('#imgNo').hide();
+            }
+            else {
+              buzzer.play();
+              $('#imgYes').hide();
+              $('#imgNo').show();
+            }
+            $('#popupResult').popup();
+            popupTimer = window.setTimeout(function(){$('#popupResult').popup("close");}, 3000);
+          },null);
+        });
+      }, 
+      function (error) {
+        alert("Scanning failed: " + error);
+      }
+    );
   });
   $('.popup').click( function() {
     clearTimeout(popupTimer);

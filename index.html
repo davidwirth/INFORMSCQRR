@@ -21,9 +21,11 @@
         <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
         <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
       </div>
-      <h1>Event: </h1>
-      <button class="item_menu" id="NETWORK_LUNCHEON">Network Luncheon</button>
-      <div id="event_items"></div>
+      <div data-role="content">
+        <h2>Event: </h2>
+        <button class="item_menu" id="NETWORK_LUNCHEON" data-theme="a">Network Luncheon</button>
+        <div id="event_items"></div>
+      </div>
       <div data-role="footer" data-position="fixed" data-theme="b">
         INFORMS
       </div>
@@ -35,11 +37,14 @@
         <a href="index.html" data-icon="home" data-iconpos="left" class="ui-btn-left"></a>
         <a href="index.html#options_page" data-icon="gear" data-iconpos="right" class="ui-btn-right"></a>
       </div>
-      <h1>Scanning for: Network Luncheon</h1>
-      <button id="scan_button"></button>
-      <div data-role="popup" id="popupYes" data-theme="a" data-overlay-theme="a" class="popup ui-content" data-transition="pop"><img src="images/icons-png/yes.png" /></div>
-      <div data-role="popup" id="popupNo" data-theme="a" data-overlay-theme="a" class="popup ui-content" data-transition="pop"><img src="images/icons-png/no.png" /></div>
-      <div id="scan_result"></div>
+      <div data-role="content">
+        <h2>Scanning for: Network Luncheon</h2>
+        <button id="scan_button"></button>
+        <div data-role="popup" id="popupResult" data-theme="a" data-overlay-theme="a" class="popup ui-content" data-transition="pop">
+          <img id="imgYes" src="images/icons-png/yes.png" />
+          <img id="imgNo" src="images/icons-png/no.png" />
+        </div>
+      </div>
       <div data-role="footer" data-position="fixed" data-theme="b">
         INFORMS
       </div>
@@ -57,7 +62,7 @@
           <div class="ui-block-a">Auto-close scanner result popup</div>
           <div class="ui-block-b"><input type="checkbox" id="option_autoclose" /></div>
           <div class="ui-block-a">Auto-close delay (sec)</div>
-          <div class="ui-block-b"><input type="range" data-highlight="true" data-mini="true" value="2" min="0" max="5" /></div>
+          <div class="ui-block-b"><input type="number" value="2" min="0" max="5" class="input_number" /></div>
           <div class="ui-block-a">Re-initialize database</div>
           <div class="ui-block-b"><button id="reinitdb_button">Re-initialize</button></div>
         </div>
