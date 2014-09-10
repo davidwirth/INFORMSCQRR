@@ -21,5 +21,7 @@
     <gap:plugin name="com.phonegap.plugins.barcodescanner"/>
     <gap:plugin name="org.apache.cordova.media" />
     <gap:plugin name="org.apache.cordova.device" />
+    
+    <preference name="phonegap-version" value="3.5.0" />
 
 </widget>
